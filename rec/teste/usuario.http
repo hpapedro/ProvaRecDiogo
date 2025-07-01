@@ -1,0 +1,46 @@
+@url_base = http://localhost:5183/api
+@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiUGVkcm8gQWx2ZXMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImV4cCI6MTc1MTMyOTEzNCwiaXNzIjoiUmVzZXJ2YVNhbGFzQVBJIiwiYXVkIjoiVXN1YXJpb0FQSSJ9.NVJVpuAFUpxBE57mRgsBMVETzi8tudduF71UdafGbYE
+
+
+
+### REGISTRAR USUARIO ADM
+POST {{url_base}}/usuarios/registrar
+Content-Type: application/json
+
+{
+    "Nome": "Pedro Alves",
+    "Email": "admin@email.com",
+    "Senha": "admin1234",
+    "Role": "Admin"
+}
+### REGISTRAR USUARIO USER
+POST {{url_base}}/usuarios/registrar
+Content-Type: application/json
+
+{
+    "Nome": "Pedro Alves",
+    "Email": "user@email.com",
+    "Senha": "user1234",
+    "Role": "User"
+}
+
+
+### LOGIN
+
+POST {{url_base}}/auth/login
+Content-Type: application/json
+
+{
+    "Email": "admin@email.com",
+    "Senha": "admin1234"
+}
+
+### LOGIN USER
+
+POST {{url_base}}/auth/login
+Content-Type: application/json
+
+{
+    "Email": "user@email.com",
+    "Senha": "user1234"
+}

@@ -1,0 +1,53 @@
+@url_base = http://localhost:5183/api
+@adminToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiUGVkcm8gQWx2ZXMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImV4cCI6MTc1MTMzMTE5NSwiaXNzIjoiUmVzZXJ2YVNhbGFzQVBJIiwiYXVkIjoiVXN1YXJpb0FQSSJ9.KWJbCu61bsNOVINeORoumcNQgTnHNAILAhWFFmOZD_A
+
+### LOGIN ADMIN para pegar token
+POST {{url_base}}/auth/login
+Content-Type: application/json
+
+{
+    "Email": "admin@email.com",
+    "Senha": "admin1234"
+}
+
+### LISTAR TODAS AS DESPESAS 
+GET {{url_base}}/despesas
+Authorization: Bearer {{adminToken}}
+
+###
+
+### BUSCAR DESPESA POR ID
+GET {{url_base}}/despesas/2
+Authorization: Bearer {{adminToken}}
+
+
+### CADASTRAR DESPESA
+POST {{url_base}}/despesas
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+    "descricao": "Compra material escritório",
+    "valor": 300.00,
+    "data": "2025-06-30T00:00:00",
+    "categoriaId": 2
+}
+
+
+### ATUALIZAR DESPESA
+PUT {{url_base}}/despesas/2
+Authorization: Bearer {{adminToken}}
+Content-Type: application/json
+
+{
+    "id": 2,
+    "descricao": "Compra material - Atualizado",
+    "valor": 350.00,
+    "data": "2025-06-30T00:00:00",
+    "categoriaId": 2
+}
+
+
+### REMOVER DESPESA
+DELETE {{url_base}}/despesas/2
+Authorization: Bearer {{adminToken}}
